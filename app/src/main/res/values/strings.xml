@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Health_Tutor</string>
+    <string name="nav_draw_open">Open Navigation</string>
+    <string name="nav_draw_close">Close Navigation</string>
+</resources>

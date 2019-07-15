@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_newbornbaby"
+            android:icon="@drawable/ht1"
+            android:title="New Born Baby" />
+        <item
+            android:id="@+id/nav_children"
+            android:icon="@drawable/ht2"
+            android:title="Children" />
+        <item
+            android:id="@+id/nav_tika"
+            android:icon="@drawable/ht3"
+            android:title="Tika" />
+        <item
+            android:id="@+id/nav_helpline"
+            android:icon="@drawable/ht4"
+            android:title="Emergency Helpline" />
+        <item
+            android:id="@+id/nav_hospital"
+            android:icon="@drawable/ht5"
+            android:title="Nearby Hospital" />
+        <item
+            android:id="@+id/nav_nutrition"
+            android:icon="@drawable/ht6"
+            android:title="Required Nutrition" />
+    </group>
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_aboutus"
+                android:icon="@drawable/about"
+                android:title="About Us" />
+            <item
+                android:id="@+id/nav_location"
+                android:icon="@drawable/location"
+                android:title="Meet us at" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/share"
+                android:title="Share with  friend" />
+        </menu>
+    </item>
+</menu>
