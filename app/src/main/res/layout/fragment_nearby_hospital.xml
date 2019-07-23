@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
+   <fragment
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/usermap"
+       android:name="com.google.android.gms.maps.SupportMapFragment" />
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nearby Hospital Fragment"
-        android:textSize="25sp"
-        android:layout_centerInParent="true"
-        android:textAlignment="center"/>
+        android:id="@+id/hospitalId"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/hloc"
+        android:layout_margin="16dp"/>
 
-</RelativeLayout>
+</FrameLayout>
