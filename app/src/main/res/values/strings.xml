@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Health_Tutor</string>
+    <string name="app_name">Health Tutor</string>
     <string name="nav_draw_open">Open Navigation</string>
     <string name="nav_draw_close">Close Navigation</string>
     <string name="title_activity_maps"
