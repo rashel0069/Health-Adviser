@@ -13,6 +13,7 @@
         android:id="@+id/hospitalId"
         android:layout_gravity="bottom|end"
         android:src="@drawable/hloc"
-        android:layout_margin="16dp"/>
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"/>
 
 </FrameLayout>

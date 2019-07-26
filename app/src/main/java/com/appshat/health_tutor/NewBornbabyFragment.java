@@ -9,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-//AIzaSyCPZG1egPoXttCA67DziavzuF99wrKnRY0
+//AIzaSyCPZG1egPoXttCA67DziavzuF99wrKnRY0 --all access
+//AIzaSyBLGc03DVHBYvzLnN7t6B2h_nKk3hXyHIA -- for this app only
 public class NewBornbabyFragment extends Fragment {
     @Nullable
     @Override
