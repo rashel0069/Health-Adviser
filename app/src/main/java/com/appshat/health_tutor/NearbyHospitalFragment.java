@@ -83,6 +83,14 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
         return v;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.usermap);
+        mapFragment.getMapAsync(this);
+
+    }
+
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
 
         StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
@@ -92,18 +100,11 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
         //googleURL.append("&sensor=true");
         googleURL.append("&key=" + "AIzaSyBLGc03DVHBYvzLnN7t6B2h_nKk3hXyHIA");
 
-        Log.d("NearbyHospitalFragment","url = " + googleURL.toString());
+        Log.d("NearbyHospitalFragment","url =" + googleURL.toString());
 
         return googleURL.toString();
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.usermap);
-        mapFragment.getMapAsync(this);
-
-    }
 
 
     @Override
