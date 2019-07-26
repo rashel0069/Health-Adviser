@@ -43,8 +43,8 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
     private GoogleMap mMap;
     private GoogleApiClient googleApiClient;
     private LocationRequest locationRequest;
-    private Location lastLocation;
-    private FloatingActionButton hospitalButton;
+    private Location mlastLocation;
+    //private FloatingActionButton hospitalButton;
     private Marker currentUserLocationMarker;
     private static final int Request_code = 99;
     private double latitude,longitude;
@@ -57,9 +57,9 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_nearby_hospital, container, false);
-        hospitalButton = (FloatingActionButton)v.findViewById(R.id.hospitalId);
-        hospitalButton.setOnClickListener(new View.OnClickListener() {
-            String hospital = "hospital";
+        //hospitalButton = (FloatingActionButton)v.findViewById(R.id.hospitalId);
+       /* hospitalButton.setOnClickListener(new View.OnClickListener() {
+            String Hospital = "hospital";
             @Override
             public void onClick(View v) {
 
@@ -67,7 +67,7 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
                 GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
 
                 mMap.clear();
-                String url = getUrl(latitude, longitude, hospital);
+                String url = getUrl(latitude, longitude, Hospital);
                 transferData[0] = mMap;
                 transferData[1] = url;
                 getNearbyPlaces.execute(transferData);
@@ -76,7 +76,7 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
                 Toast.makeText(getActivity(), "Showing for Nearby Hospitals...", Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });*/
        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
            checkUserLocationPermission();
        }
@@ -91,22 +91,6 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
 
     }
 
-    private String getUrl(double latitude, double longitude, String nearbyPlace) {
-
-        StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        googleURL.append("location=" + latitude + "," + longitude);
-        googleURL.append("&radius=" + ProximityRadius);
-        googleURL.append("&type=" + nearbyPlace);
-        //googleURL.append("&sensor=true");
-        googleURL.append("&key=" + "AIzaSyBLGc03DVHBYvzLnN7t6B2h_nKk3hXyHIA");
-
-        Log.d("NearbyHospitalFragment","url =" + googleURL.toString());
-
-        return googleURL.toString();
-    }
-
-
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -116,6 +100,22 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
             buildGoogleApiClint();
             mMap.setMyLocationEnabled(true);
         }
+        FloatingActionButton btnHospital = (FloatingActionButton)getView().findViewById(R.id.hospitalId);
+        btnHospital.setOnClickListener(new View.OnClickListener() {
+            String Hospital = "hospital";
+            @Override
+            public void onClick(View v) {
+                mMap.clear();
+                String url = getUrl(latitude, longitude, Hospital);
+                Object[] DataTransfer = new Object[2];
+                DataTransfer[0] = mMap;
+                DataTransfer[1] = url;
+                GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
+                getNearbyPlaces.execute(DataTransfer);
+                Toast.makeText(getActivity(), "Nearby Hospital", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
     //user permission check
     public boolean checkUserLocationPermission(){
@@ -163,7 +163,7 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
     public void onLocationChanged(Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
-        lastLocation = location;
+        mlastLocation = location;
         if (currentUserLocationMarker != null){
             currentUserLocationMarker.remove();
         }
@@ -190,14 +190,27 @@ public class NearbyHospitalFragment extends Fragment implements OnMapReadyCallba
     public void onConnected(@Nullable Bundle bundle) {
 
         locationRequest = new LocationRequest();
-        locationRequest.setInterval(1100);
-        locationRequest.setFastestInterval(1100);
+        locationRequest.setInterval(1000);
+        locationRequest.setFastestInterval(1000);
         locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ) {
             LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
         }
 
+    }
+    private String getUrl(double latitude, double longitude, String nearbyPlace) {
+
+        StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googleURL.append("location=" + latitude + "," + longitude);
+        googleURL.append("&radius=" + ProximityRadius);
+        googleURL.append("&type=" + nearbyPlace);
+        googleURL.append("&sensor=true");
+        googleURL.append("&key=" + "AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0");
+
+        Log.d("NearbyHospitalFragment","url =" + googleURL.toString());
+
+        return (googleURL.toString());
     }
 
     @Override
