@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".Book_Activity"></activity>
+        <activity android:name=".GridView_Activity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

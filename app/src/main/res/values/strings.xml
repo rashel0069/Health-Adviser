@@ -2,6 +2,20 @@
     <string name="app_name">Health Tutor</string>
     <string name="nav_draw_open">Open Navigation</string>
     <string name="nav_draw_close">Close Navigation</string>
-    <string name="title_activity_maps"
-        tools:ignore="ExtraTranslation">Map</string>
+    <string name="tika1">wbqwgZ wUKv`vb mgqm~wP</string>
+    <string name="tikaB1">0-11 gvm Ges 15 gvm eq‡mi wkky‡`i wUKv`vb mgqm~wP</string>
+    <string name="tikaB2">15 eQi eqmx wK‡kvix I 15-49 eQi eq‡mi gwnjv‡`i wUKv`vb mgqm~wP</string>
+
+    <string name="tikas1">h²v</string>
+    <string name="tikas2">wWd‡_wiqv, ûwcsKvwk\nabyósKvi, †ncvUvBwUm-we,\nwn‡gvdvBjvm Bbd¬y‡qÄv-we</string>
+    <string name="tikas3">wbD‡gvK°vj wbD‡gvwbqv</string>
+    <string name="tikas4">†cvwjI gvBjvBUm</string>
+    <string name="tikas5">nvg I iæ‡ejv</string>
+    <string name="tikas6">nvg</string>
+
+    <string name="tikaw1">nvg I iæ‡ejv</string>
+    <string name="tikaw2">abyósKvi</string>
+
+
+    <string name="title_activity_maps" tools:ignore="ExtraTranslation">Map</string>
 </resources>
